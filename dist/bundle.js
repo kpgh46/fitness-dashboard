@@ -1,0 +1,1 @@
+(()=>{let e=document.createElement("div");e.textContent="jskfldk",document.getElementById("test").appendChild(e)})();
