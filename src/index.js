@@ -1,10 +1,5 @@
 import "./style.css";
 
-let tDiv = document.createElement("div");
-tDiv.textContent = "This is a testtt";
-
-document.getElementById("test").appendChild(tDiv);
-
 // console.log("hi", "again");
 
 // const axios = require("axios");
@@ -38,6 +33,7 @@ document.getElementById("test").appendChild(tDiv);
 // 	.then((response) => console.log(response))
 // 	.catch((err) => console.error(err));
 
-document.querySelector("#push").addEventListener("click", () => {
-	console.log("this worked");
+document.querySelector("#submit-workout").addEventListener("click", () => {
+	let value = document.querySelector('input[name="days"]:checked');
+	console.log(value);
 });
