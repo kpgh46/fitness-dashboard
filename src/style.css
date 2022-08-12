@@ -1,3 +1,26 @@
-#test {
-    color: orange;
+.container{
+    /* height: 550px; */
+    border: 1px black;
+}
+
+.middle{
+    height: 350px;
+    border: 1px solid red;
+    border-radius: 10px;
+}
+
+.bottom{
+    height: 450px;
+    border: 1px solid red;
+    border-radius: 10px;
+}
+
+.row.bottom{
+    height:130px;
+    border: 1px solid green;
+}
+
+.col-2.completed{
+    border: 1px solid purple;
+    border-radius: 10px;
 }
