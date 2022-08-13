@@ -1,4 +1,4 @@
-let getExcercises = async () => {
+let fetchExcercises = async () => {
 	const options = {
 		method: "GET",
 		headers: {
@@ -17,7 +17,7 @@ let getExcercises = async () => {
 };
 
 let getExcercisesBasedOnEquipment = async (equip = []) => {
-	let excercises = await getExcercises();
+	let excercises = await fetchExcercises();
 	let filteredExcercises = [];
 	equip.forEach((item) => {
 		excercises.forEach((excercise) => {
@@ -31,7 +31,7 @@ let getExcercisesBasedOnEquipment = async (equip = []) => {
 	return filteredExcercises;
 };
 
-let createWorkoutPlan = async (excercises, days, time) => {
+let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
 	let bodyParts = [
 		"back",
 		"chest",
@@ -41,15 +41,27 @@ let createWorkoutPlan = async (excercises, days, time) => {
 		"upper arms",
 	];
 
-	let amountOfTime = {
-		15: 4,
-		30: 8,
-		45: 12,
-		60: 16,
-	};
+	let getNumberOfSetsPerWorkout =
+		amountOfTime === 15
+			? 4
+			: amountOfTime === 30
+			? 8
+			: amountOfTime === 45
+			? 12
+			: amountOfTime === 60
+			? 16
+			: 0;
 
-	let e = await excercises;
-	console.log(e, days, time);
+	let getSlicedBodyParts = numberOfDays === 2 ? 3 : 2;
+
+	let currentExcercises = await excercises;
+
+	for (let i = 0; i < numberOfDays; i++) {
+		let currentBodyParts = bodyParts.splice(0, getSlicedBodyParts);
+		console.log(currentBodyParts);
+	}
+
+	// console.log(getNumberOfSetsPerWorkout, getSlicedBodyParts);
 
 	//if 15 minutes, then 4 excercises
 	//if 30 minutes, then 8 excercises
