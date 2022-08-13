@@ -22,14 +22,42 @@ let getExcercisesBasedOnEquipment = async (equip = []) => {
 	equip.forEach((item) => {
 		excercises.forEach((excercise) => {
 			if (excercise.equipment === item) {
-				e.push(excercise);
+				filteredExcercises.push(excercise);
 			}
 		});
 	});
 
+	// console.log(filteredExcercises);
 	return filteredExcercises;
 };
 
-let createWorkout = (excercises, days, time) => {};
+let createWorkoutPlan = async (excercises, days, time) => {
+	let bodyParts = [
+		"back",
+		"chest",
+		"shoulders",
+		"upper legs",
+		"abs",
+		"upper arms",
+	];
 
-export { createWorkout };
+	let amountOfTime = {
+		15: 4,
+		30: 8,
+		45: 12,
+		60: 16,
+	};
+
+	let e = await excercises;
+	console.log(e, days, time);
+
+	//if 15 minutes, then 4 excercises
+	//if 30 minutes, then 8 excercises
+	//if 45 minutes, then 12 excercises
+	//if 60 minutes, then 16 excercises
+
+	//if 2 days, then 3 body parts on each day.  Slice bodyparts by 3
+	//if > 2, then 2 body parts each day. Slice bodyparts by 2
+};
+
+export { getExcercisesBasedOnEquipment, createWorkoutPlan };

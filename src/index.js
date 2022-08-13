@@ -1,16 +1,27 @@
 import "./style.css";
-import { createWorkout } from "./WorkoutPlan";
+import {
+	getExcercisesBasedOnEquipment,
+	createWorkoutPlan,
+} from "./WorkoutPlan";
 
 // createWorkout();
 
 document.querySelector("#submit-workout").addEventListener("click", () => {
-	let numDays = document.querySelector('input[name="days"]:checked');
-	let time = document.querySelector('input[name = "time"]:checked');
-	let equipment = document.querySelectorAll(
+	let getNumDays = parseInt(
+		document.querySelector('input[name="days"]:checked').value
+	);
+	let getTime = parseInt(
+		document.querySelector('input[name = "time"]:checked').value
+	);
+	let getEquipment = document.querySelectorAll(
 		'input[name="equipment"]:checked'
 	);
 	let allEquipment = [];
-	equipment.forEach((item) => allEquipment.push(item.value));
-	// console.log(value.value, time.value, allEquipment);
-	createWorkout(["dumbbell", "barbell"]);
+	getEquipment.forEach((item) => allEquipment.push(item.value));
+	// console.log(numDays, time, allEquipment);
+	let currentExcercises = getExcercisesBasedOnEquipment([
+		"dumbbell",
+		"barbell",
+	]);
+	createWorkoutPlan(currentExcercises, getNumDays, getTime);
 });
