@@ -1,3 +1,5 @@
+import { workout } from "./CreateWorkout";
+
 let fetchExcercises = async () => {
 	const options = {
 		method: "GET",
@@ -28,7 +30,6 @@ let getExcercisesBasedOnEquipment = async (equip = []) => {
 		});
 	});
 
-	// console.log(filteredExcercises);
 	return filteredExcercises;
 };
 
@@ -39,7 +40,6 @@ let createSingleWorkout = (excercises, muscles, numOfExcercises) => {
 	for (let i = 0; i < difference; i++) {
 		muscles.push(muscles[i]);
 	}
-	console.log(muscles);
 
 	muscles.forEach((muscle) => {
 		let filterMuscle = excercises.filter((item) => {
@@ -50,10 +50,11 @@ let createSingleWorkout = (excercises, muscles, numOfExcercises) => {
 		workout.push(filterMuscle[randomNum]);
 	});
 
-	// console.log(workout);
+	return workout;
 };
 
 let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
+	let weeklyWorkout = [];
 	let currentExcercises = await excercises;
 	let bodyParts = [
 		"back",
@@ -88,24 +89,19 @@ let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
 			startingPoint + getSlicedBodyParts
 		);
 
-		createSingleWorkout(
-			currentExcercises,
-			currentBodyParts,
-			getNumberOfExcercisesPerWorkout
+		weeklyWorkout.push(
+			createSingleWorkout(
+				currentExcercises,
+				currentBodyParts,
+				getNumberOfExcercisesPerWorkout
+			)
 		);
 
 		startingPoint += 2;
 	}
 
-	// console.log(getNumberOfSetsPerWorkout, getSlicedBodyParts);
-
-	//if 15 minutes, then 3 excercises
-	//if 30 minutes, then 6 excercises
-	//if 45 minutes, then 9 excercises
-	//if 60 minutes, then 12 excercises
-
-	//if 2 days, then 3 body parts on each day.  Slice bodyparts by 3
-	//if > 2, then 2 body parts each day. Slice bodyparts by 2
+	return workout(weeklyWorkout);
+	// return weeklyWorkout[0][1].name;
 };
 
 export { getExcercisesBasedOnEquipment, createWorkoutPlan };
