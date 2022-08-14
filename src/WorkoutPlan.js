@@ -34,10 +34,11 @@ let getExcercisesBasedOnEquipment = async (equip = []) => {
 
 let createSingleWorkout = (excercises, muscles, numOfExcercises) => {
 	let workout = [];
-	// muscles = muscles;
-	// muscles.push("sup");
+	let difference = numOfExcercises - muscles.length;
 
-	// while (muscles.length !== numOfExcercises) {}
+	for (let i = 0; i < difference; i++) {
+		muscles.push(muscles[i]);
+	}
 
 	muscles.forEach((muscle) => {
 		let filterMuscle = excercises.filter((item) => {

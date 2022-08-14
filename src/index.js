@@ -24,5 +24,5 @@ document.querySelector("#submit-workout").addEventListener("click", () => {
 		"dumbbell",
 		"barbell",
 	]);
-	createWorkoutPlan(currentExcercises, 2, 45);
+	createWorkoutPlan(currentExcercises, 3, 60);
 });
