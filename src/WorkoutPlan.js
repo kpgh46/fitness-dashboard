@@ -39,6 +39,7 @@ let createSingleWorkout = (excercises, muscles, numOfExcercises) => {
 	for (let i = 0; i < difference; i++) {
 		muscles.push(muscles[i]);
 	}
+	console.log(muscles);
 
 	muscles.forEach((muscle) => {
 		let filterMuscle = excercises.filter((item) => {
@@ -49,7 +50,7 @@ let createSingleWorkout = (excercises, muscles, numOfExcercises) => {
 		workout.push(filterMuscle[randomNum]);
 	});
 
-	console.log(workout);
+	// console.log(workout);
 };
 
 let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
@@ -76,13 +77,24 @@ let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
 
 	let getSlicedBodyParts = numberOfDays === 2 ? 3 : 2;
 
+	let startingPoint = 0;
+
 	for (let i = 0; i < numberOfDays; i++) {
-		let currentBodyParts = bodyParts.splice(0, getSlicedBodyParts);
+		if (startingPoint > 5) {
+			startingPoint = 0;
+		}
+		let currentBodyParts = bodyParts.slice(
+			startingPoint,
+			startingPoint + getSlicedBodyParts
+		);
+
 		createSingleWorkout(
 			currentExcercises,
 			currentBodyParts,
 			getNumberOfExcercisesPerWorkout
 		);
+
+		startingPoint += 2;
 	}
 
 	// console.log(getNumberOfSetsPerWorkout, getSlicedBodyParts);
