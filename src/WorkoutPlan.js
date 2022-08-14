@@ -16,6 +16,7 @@ let fetchExcercises = async () => {
 	return data;
 };
 
+//filters based on user equipment availability
 let getExcercisesBasedOnEquipment = async (equip = []) => {
 	let excercises = await fetchExcercises();
 	let filteredExcercises = [];
@@ -31,42 +32,64 @@ let getExcercisesBasedOnEquipment = async (equip = []) => {
 	return filteredExcercises;
 };
 
+let createSingleWorkout = (excercises, muscles, numOfExcercises) => {
+	let workout = [];
+	// muscles = muscles;
+	// muscles.push("sup");
+
+	// while (muscles.length !== numOfExcercises) {}
+
+	muscles.forEach((muscle) => {
+		let filterMuscle = excercises.filter((item) => {
+			return item.bodyPart === muscle;
+		});
+
+		let randomNum = Math.floor(Math.random() * filterMuscle.length + 1);
+		workout.push(filterMuscle[randomNum]);
+	});
+
+	console.log(workout);
+};
+
 let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
+	let currentExcercises = await excercises;
 	let bodyParts = [
 		"back",
 		"chest",
 		"shoulders",
 		"upper legs",
-		"abs",
+		"waist",
 		"upper arms",
 	];
 
-	let getNumberOfSetsPerWorkout =
+	let getNumberOfExcercisesPerWorkout =
 		amountOfTime === 15
-			? 4
+			? 3
 			: amountOfTime === 30
-			? 8
+			? 6
 			: amountOfTime === 45
-			? 12
+			? 9
 			: amountOfTime === 60
-			? 16
+			? 12
 			: 0;
 
 	let getSlicedBodyParts = numberOfDays === 2 ? 3 : 2;
 
-	let currentExcercises = await excercises;
-
 	for (let i = 0; i < numberOfDays; i++) {
 		let currentBodyParts = bodyParts.splice(0, getSlicedBodyParts);
-		console.log(currentBodyParts);
+		createSingleWorkout(
+			currentExcercises,
+			currentBodyParts,
+			getNumberOfExcercisesPerWorkout
+		);
 	}
 
 	// console.log(getNumberOfSetsPerWorkout, getSlicedBodyParts);
 
-	//if 15 minutes, then 4 excercises
-	//if 30 minutes, then 8 excercises
-	//if 45 minutes, then 12 excercises
-	//if 60 minutes, then 16 excercises
+	//if 15 minutes, then 3 excercises
+	//if 30 minutes, then 6 excercises
+	//if 45 minutes, then 9 excercises
+	//if 60 minutes, then 12 excercises
 
 	//if 2 days, then 3 body parts on each day.  Slice bodyparts by 3
 	//if > 2, then 2 body parts each day. Slice bodyparts by 2

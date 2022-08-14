@@ -13,6 +13,7 @@ document.querySelector("#submit-workout").addEventListener("click", () => {
 	let getTime = parseInt(
 		document.querySelector('input[name = "time"]:checked').value
 	);
+
 	let getEquipment = document.querySelectorAll(
 		'input[name="equipment"]:checked'
 	);
@@ -23,5 +24,5 @@ document.querySelector("#submit-workout").addEventListener("click", () => {
 		"dumbbell",
 		"barbell",
 	]);
-	createWorkoutPlan(currentExcercises, 5, 2);
+	createWorkoutPlan(currentExcercises, 2, 45);
 });
