@@ -1,4 +1,5 @@
-import { workout } from "./CreateWorkout";
+import { createWeeklyWorkoutPlan } from "./CreateWorkout";
+let mainWorkout = [];
 
 let fetchExcercises = async () => {
 	const options = {
@@ -47,9 +48,13 @@ let createSingleWorkout = (excercises, muscles, numOfExcercises) => {
 		});
 
 		let randomNum = Math.floor(Math.random() * filterMuscle.length);
+<<<<<<< HEAD
 		let randomExcercise = filterMuscle[randomNum];
 
 		workout.push(randomExcercise);
+=======
+		workout.push(filterMuscle[randomNum]);
+>>>>>>> generate-workout-object
 	});
 
 	return workout;
@@ -102,9 +107,14 @@ let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
 		startingPoint += 2;
 	}
 
+<<<<<<< HEAD
 	// return workout(weeklyWorkout);
 	// return weeklyWorkout[0][1].name;
 	return weeklyWorkout;
+=======
+	// console.log(weeklyWorkout);
+	mainWorkout.push(createWeeklyWorkoutPlan(weeklyWorkout));
+>>>>>>> generate-workout-object
 };
 
-export { getExcercisesBasedOnEquipment, createWorkoutPlan };
+export { getExcercisesBasedOnEquipment, createWorkoutPlan, mainWorkout };

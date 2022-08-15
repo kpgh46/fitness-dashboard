@@ -3,8 +3,8 @@ import {
 	getExcercisesBasedOnEquipment,
 	createWorkoutPlan,
 	weeklyWorkout,
+	mainWorkout,
 } from "./FetchWorkouts";
-import { workout } from "./CreateWorkout";
 
 // createWorkout();
 
@@ -23,10 +23,18 @@ document
 		);
 		let allEquipment = [];
 		getEquipment.forEach((item) => allEquipment.push(item.value));
+<<<<<<< HEAD
 		// console.log(numDays, time, allEquipment);
 		let currentExcercises = getExcercisesBasedOnEquipment([
 			"dumbbell",
 			"barbell",
 		]);
 		console.log(await createWorkoutPlan(currentExcercises, 5, 45));
+=======
+		// console.log(allEquipment);
+		let currentExcercises = getExcercisesBasedOnEquipment(allEquipment);
+		await createWorkoutPlan(currentExcercises, getNumDays, getTime);
+
+		console.log(mainWorkout);
+>>>>>>> generate-workout-object
 	});
