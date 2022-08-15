@@ -1,11 +1,11 @@
-let individualSet = (arr) => {
+let individualDay = (dailyExcercisesArray) => {
 	let day = [];
-	arr.forEach((part, i) => {
+	dailyExcercisesArray.forEach((excercise, i) => {
 		day.push({
 			excerciseNum: i + 1,
-			bodyPart: part.bodyPart,
-			excerciseName: part.name,
-			equipment: part.equipment,
+			bodyPart: excercise.bodyPart,
+			excerciseName: excercise.name,
+			equipment: excercise.equipment,
 			sets: 3,
 			complete: false,
 		});
@@ -14,12 +14,12 @@ let individualSet = (arr) => {
 	return day;
 };
 
-let testWorkout = (weeklyPlan) => {
+let createWeeklyWorkoutPlan = (weeklyPlan) => {
 	let complete = [];
 	weeklyPlan.forEach((day, index) => {
-		complete.push(individualSet(day));
+		complete.push(individualDay(day));
 	});
 	return complete;
 };
 
-export { testWorkout };
+export { createWeeklyWorkoutPlan };

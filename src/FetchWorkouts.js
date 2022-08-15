@@ -1,4 +1,4 @@
-import { testWorkout } from "./CreateWorkout";
+import { createWeeklyWorkoutPlan } from "./CreateWorkout";
 let mainWorkout = [];
 
 let fetchExcercises = async () => {
@@ -102,7 +102,7 @@ let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
 	}
 
 	// console.log(weeklyWorkout);
-	mainWorkout.push(testWorkout(weeklyWorkout));
+	mainWorkout.push(createWeeklyWorkoutPlan(weeklyWorkout));
 };
 
 export { getExcercisesBasedOnEquipment, createWorkoutPlan, mainWorkout };
