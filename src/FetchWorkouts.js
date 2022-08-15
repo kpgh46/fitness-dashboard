@@ -52,8 +52,6 @@ let createSingleWorkout = (excercises, muscles, numOfExcercises) => {
 		let randomExcercise = filterMuscle[randomNum];
 
 		workout.push(randomExcercise);
-
-		workout.push(filterMuscle[randomNum]);
 	});
 
 	return workout;
