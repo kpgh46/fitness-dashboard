@@ -3,6 +3,7 @@ import {
 	getExcercisesBasedOnEquipment,
 	createWorkoutPlan,
 	weeklyWorkout,
+	mainWorkout,
 } from "./FetchWorkouts";
 import { workout } from "./CreateWorkout";
 
@@ -28,5 +29,7 @@ document
 			"dumbbell",
 			"barbell",
 		]);
-		console.log(await createWorkoutPlan(currentExcercises, 3, 45));
+		await createWorkoutPlan(currentExcercises, 3, 45);
+
+		console.log(mainWorkout);
 	});

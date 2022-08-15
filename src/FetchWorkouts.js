@@ -1,4 +1,5 @@
-import { workout } from "./CreateWorkout";
+import { workout, testWorkout } from "./CreateWorkout";
+let mainWorkout = [];
 
 let fetchExcercises = async () => {
 	const options = {
@@ -100,8 +101,8 @@ let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
 		startingPoint += 2;
 	}
 
-	return workout(weeklyWorkout);
-	// return weeklyWorkout[0][1].name;
+	// console.log(weeklyWorkout);
+	mainWorkout.push(testWorkout(weeklyWorkout));
 };
 
-export { getExcercisesBasedOnEquipment, createWorkoutPlan };
+export { getExcercisesBasedOnEquipment, createWorkoutPlan, mainWorkout };
