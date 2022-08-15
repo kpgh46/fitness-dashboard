@@ -46,7 +46,7 @@ let createSingleWorkout = (excercises, muscles, numOfExcercises) => {
 			return item.bodyPart === muscle;
 		});
 
-		let randomNum = Math.floor(Math.random() * filterMuscle.length + 1);
+		let randomNum = Math.floor(Math.random() * filterMuscle.length);
 		workout.push(filterMuscle[randomNum]);
 	});
 
