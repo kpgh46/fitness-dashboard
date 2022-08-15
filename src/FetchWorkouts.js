@@ -1,4 +1,4 @@
-import { workout, testWorkout } from "./CreateWorkout";
+import { testWorkout } from "./CreateWorkout";
 let mainWorkout = [];
 
 let fetchExcercises = async () => {

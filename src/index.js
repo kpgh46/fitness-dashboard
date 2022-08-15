@@ -5,7 +5,6 @@ import {
 	weeklyWorkout,
 	mainWorkout,
 } from "./FetchWorkouts";
-import { workout } from "./CreateWorkout";
 
 // createWorkout();
 
