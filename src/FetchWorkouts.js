@@ -41,13 +41,15 @@ let createSingleWorkout = (excercises, muscles, numOfExcercises) => {
 		muscles.push(muscles[i]);
 	}
 
-	muscles.forEach((muscle) => {
+	muscles.forEach((muscle, i) => {
 		let filterMuscle = excercises.filter((item) => {
 			return item.bodyPart === muscle;
 		});
 
-		let randomNum = Math.floor(Math.random() * filterMuscle.length + 1);
-		workout.push(filterMuscle[randomNum]);
+		let randomNum = Math.floor(Math.random() * filterMuscle.length);
+		let randomExcercise = filterMuscle[randomNum];
+
+		workout.push(randomExcercise);
 	});
 
 	return workout;
@@ -100,8 +102,9 @@ let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
 		startingPoint += 2;
 	}
 
-	return workout(weeklyWorkout);
+	// return workout(weeklyWorkout);
 	// return weeklyWorkout[0][1].name;
+	return weeklyWorkout;
 };
 
 export { getExcercisesBasedOnEquipment, createWorkoutPlan };

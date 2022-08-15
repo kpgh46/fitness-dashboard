@@ -28,5 +28,5 @@ document
 			"dumbbell",
 			"barbell",
 		]);
-		console.log(await createWorkoutPlan(currentExcercises, 3, 45));
+		console.log(await createWorkoutPlan(currentExcercises, 5, 45));
 	});
