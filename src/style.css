@@ -17,7 +17,7 @@
 
 .row.bottom{
     height:130px;
-    border: 1px solid silver;
+    border: 1px solid none;
 }
 
 .col-2.completed{

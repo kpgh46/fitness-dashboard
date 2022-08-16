@@ -1,5 +1,5 @@
 let render = (workout) => {
-	let bottomContainer = document.querySelector("#container-bottom");
+	let bottomContainer = document.querySelector("#workout-container");
 	bottomContainer.innerHTML = "";
 
 	workout.forEach((week) => {
@@ -17,8 +17,6 @@ let render = (workout) => {
 		});
 		bottomContainer.appendChild(bottomRow);
 	});
-
-	// bottomRow.appendChild(bottomCell);
 };
 
 export { render };
