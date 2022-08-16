@@ -5,6 +5,7 @@ import {
 	weeklyWorkout,
 	mainWorkout,
 } from "./FetchWorkouts";
+import { render } from "./Render";
 
 // createWorkout();
 
@@ -36,4 +37,5 @@ document
 		await createWorkoutPlan(currentExcercises, getNumDays, getTime);
 
 		console.log(mainWorkout);
+		render();
 	});
