@@ -1,5 +1,3 @@
-import { mainWorkout } from "./FetchWorkouts";
-
 let render = () => {
 	let bottomRow = document.createElement("section");
 	bottomRow.classList.add("row");
