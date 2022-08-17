@@ -1,6 +1,7 @@
 let render = (workout) => {
 	let bottomContainer = document.querySelector("#workout-container");
 	bottomContainer.innerHTML = "";
+	let allCells = document.querySelectorAll("#cell");
 
 	workout.forEach((week, weeki) => {
 		let bottomRow = document.createElement("section");
@@ -13,10 +14,18 @@ let render = (workout) => {
 			bottomCell.classList.add("col-2");
 			bottomCell.classList.add("completed");
 			bottomCell.dataset.id = `${weeki}${dayi}`;
+			bottomCell.id = "cell";
 			bottomCell.innerHTML = `${day[0].bodyPart} & ${day[1].bodyPart}`;
 			bottomRow.appendChild(bottomCell);
 		});
 		bottomContainer.appendChild(bottomRow);
+	});
+
+	document.addEventListener("click", (e) => {
+		let el = e.target;
+		if (e.target.id === "cell") {
+			console.log(el.dataset.id);
+		}
 	});
 };
 

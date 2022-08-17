@@ -11,7 +11,7 @@ import { render } from "./Render";
 
 document
 	.querySelector("#submit-workout")
-	.addEventListener("click", async () => {
+	.addEventListener("click", async (event) => {
 		let getNumDays = parseInt(
 			document.querySelector('input[name="days"]:checked').value
 		);
@@ -36,6 +36,6 @@ document
 		let currentExcercises = getExcercisesBasedOnEquipment(allEquipment);
 		await createWorkoutPlan(currentExcercises, getNumDays, getTime);
 
-		console.log(mainWorkout);
+		// console.log(mainWorkout);
 		render(mainWorkout);
 	});
