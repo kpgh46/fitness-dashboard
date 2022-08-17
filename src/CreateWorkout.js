@@ -1,7 +1,10 @@
+import uniqid from "uniqid";
+
 let individualDay = (dailyExcercisesArray) => {
 	let day = [];
 	dailyExcercisesArray.forEach((excercise, i) => {
 		day.push({
+			id: uniqid(),
 			excerciseNum: i + 1,
 			bodyPart: excercise.bodyPart,
 			excerciseName: excercise.name,
