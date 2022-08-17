@@ -104,11 +104,6 @@ let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
 		startingPoint += 2;
 	}
 
-	// return workout(weeklyWorkout);
-	// return weeklyWorkout[0][1].name;
-	// return weeklyWorkout;
-
-	// console.log(weeklyWorkout);
 	mainWorkout.push(createWeeklyWorkoutPlan(weeklyWorkout));
 };
 
