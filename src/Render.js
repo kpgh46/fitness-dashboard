@@ -1,22 +1,21 @@
 import { mainWorkout } from "./FetchWorkouts";
 
-// let getExcercises = (week, day) => {
-//     let currentWeek = mainWorkout[week][day]
-//     let result = []
-
-//     currentWeek.forEach(day => {
-
-//     })
-
-// };
-
 let clickCell = () => {
 	document.addEventListener("click", (e) => {
 		let el = e.target;
 		if (e.target.id === "cell") {
-			console.log(el.dataset.id, mainWorkout);
-			document.getElementById("selected").innerHTML =
-				mainWorkout[0][0][0].excerciseName;
+			let currentWeek = mainWorkout[0][1];
+			document.getElementById("selected").innerHTML = currentWeek
+				.map(
+					(item) =>
+						`
+                <div>
+                    <div> ${item.bodyPart}</div>
+                    <div> ${item.excerciseName}</div>
+                </div>
+                `
+				)
+				.join("");
 		}
 	});
 };
