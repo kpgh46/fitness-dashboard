@@ -19,7 +19,7 @@ let clickCell = () => {
                 </div>
                 <div class="collapse" id="collapseExample${item.id}">
                     <div class="card card-body">
-                        <img src = ${item.url}>
+                        <img style = "height: 220px;" src = ${item.url}>
                      </div>
                 </div>
                 `
