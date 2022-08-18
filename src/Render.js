@@ -11,9 +11,16 @@ let clickCell = () => {
 					(item, index) =>
 						`
                 <div>
-                    <div data-id = ${item.id}>${index + 1}: ${
-							item.excerciseName
-						}</div>
+                    <div data-bs-toggle="collapse" data-bs-target="#collapseExample${
+						item.id
+					}" aria-expanded="true" aria-controls="collapseExample" data-id = ${
+							item.id
+						}>${index + 1}: ${item.excerciseName}</div>
+                </div>
+                <div class="collapse" id="collapseExample${item.id}">
+                    <div class="card card-body">
+                        <img src = ${item.url}>
+                     </div>
                 </div>
                 `
 				)
@@ -48,6 +55,7 @@ let displayWorkout = (workout) => {
 let render = (workout) => {
 	displayWorkout(workout);
 	clickCell();
+	console.log(workout);
 };
 
 export { render };

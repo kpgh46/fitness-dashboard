@@ -1,4 +1,5 @@
 import "./style.css";
+import { Tooltip, Toast, Popover } from "bootstrap";
 import {
 	getExcercisesBasedOnEquipment,
 	createWorkoutPlan,
@@ -27,6 +28,6 @@ document
 
 		let currentExcercises = getExcercisesBasedOnEquipment(allEquipment);
 		await createWorkoutPlan(currentExcercises, getNumDays, getTime);
-
+		console.log(mainWorkout);
 		render(mainWorkout);
 	});

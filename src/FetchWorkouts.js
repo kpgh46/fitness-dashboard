@@ -16,6 +16,7 @@ let fetchExcercises = async () => {
 		options
 	);
 	let data = await response.json();
+	console.log(data);
 	return data;
 };
 
@@ -104,11 +105,6 @@ let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
 		startingPoint += 2;
 	}
 
-	// return workout(weeklyWorkout);
-	// return weeklyWorkout[0][1].name;
-	// return weeklyWorkout;
-
-	// console.log(weeklyWorkout);
 	mainWorkout.push(createWeeklyWorkoutPlan(weeklyWorkout));
 };
 

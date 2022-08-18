@@ -10,6 +10,7 @@ let individualDay = (dailyExcercisesArray) => {
 			excerciseName: excercise.name,
 			equipment: excercise.equipment,
 			sets: 3,
+			url: excercise.gifUrl,
 			complete: false,
 		});
 	});
