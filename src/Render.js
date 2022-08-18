@@ -1,5 +1,16 @@
 import { mainWorkout } from "./FetchWorkouts";
 
+let clickCompleteBtn = () => {
+	document.addEventListener("click", (e) => {
+		let el = e.target;
+		if (el.id === "complete") {
+			let { 0: week, 1: day } = el.dataset.id.split("");
+			let currentDay = mainWorkout[week][day];
+			currentDay.complete = true;
+		}
+	});
+};
+
 let clickCell = () => {
 	document.addEventListener("click", (e) => {
 		let el = e.target;
@@ -47,6 +58,14 @@ let displayWorkout = (workout) => {
 			bottomCell.dataset.id = `${weeki}${dayi}`;
 			bottomCell.id = "cell";
 			bottomCell.innerHTML = `${day.dailyExcercises[0].bodyPart} & ${day.dailyExcercises[1].bodyPart}`;
+			let completeBtn = document.createElement("button");
+			completeBtn.classList.add("btn");
+			completeBtn.classList.add("btn-primary");
+			completeBtn.classList.add("btn-sm");
+			completeBtn.textContent = "Complete";
+			completeBtn.dataset.id = `${weeki}${dayi}`;
+			completeBtn.id = "complete";
+			bottomCell.appendChild(completeBtn);
 			bottomRow.appendChild(bottomCell);
 		});
 		bottomContainer.appendChild(bottomRow);
@@ -56,6 +75,7 @@ let displayWorkout = (workout) => {
 let render = (workout) => {
 	displayWorkout(workout);
 	clickCell();
+	clickCompleteBtn();
 	console.log(workout);
 };
 
