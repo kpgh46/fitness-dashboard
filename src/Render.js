@@ -4,14 +4,16 @@ let clickCell = () => {
 	document.addEventListener("click", (e) => {
 		let el = e.target;
 		if (e.target.id === "cell") {
-			let currentWeek = mainWorkout[0][1];
+			let { 0: week, 1: day } = el.dataset.id.split("");
+			let currentWeek = mainWorkout[week][day];
 			document.getElementById("selected").innerHTML = currentWeek
 				.map(
-					(item) =>
+					(item, index) =>
 						`
                 <div>
-                    <div> ${item.bodyPart}</div>
-                    <div> ${item.excerciseName}</div>
+                    <div data-id = ${item.id}>${index + 1}: ${
+							item.excerciseName
+						}</div>
                 </div>
                 `
 				)
