@@ -6,16 +6,17 @@ let clickCell = () => {
 		if (e.target.id === "cell") {
 			let { 0: week, 1: day } = el.dataset.id.split("");
 			let currentWeek = mainWorkout[week][day];
-			document.getElementById("selected").innerHTML = currentWeek
-				.map(
-					(item, index) =>
-						`
+			document.getElementById("selected").innerHTML =
+				currentWeek.dailyExcercises
+					.map(
+						(item, index) =>
+							`
                 <div>
                     <div data-bs-toggle="collapse" data-bs-target="#collapseExample${
 						item.id
 					}" aria-expanded="true" aria-controls="collapseExample" data-id = ${
-							item.id
-						}>${index + 1}: ${item.excerciseName}</div>
+								item.id
+							}>${index + 1}: ${item.excerciseName}</div>
                 </div>
                 <div class="collapse" id="collapseExample${item.id}">
                     <div class="card card-body">
@@ -23,8 +24,8 @@ let clickCell = () => {
                      </div>
                 </div>
                 `
-				)
-				.join("");
+					)
+					.join("");
 		}
 	});
 };
@@ -45,7 +46,7 @@ let displayWorkout = (workout) => {
 			bottomCell.classList.add("completed");
 			bottomCell.dataset.id = `${weeki}${dayi}`;
 			bottomCell.id = "cell";
-			bottomCell.innerHTML = `${day[0].bodyPart} & ${day[1].bodyPart}`;
+			bottomCell.innerHTML = `${day.dailyExcercises[0].bodyPart} & ${day.dailyExcercises[1].bodyPart}`;
 			bottomRow.appendChild(bottomCell);
 		});
 		bottomContainer.appendChild(bottomRow);
