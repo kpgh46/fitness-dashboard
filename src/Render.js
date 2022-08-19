@@ -1,19 +1,5 @@
 import { mainWorkout } from "./FetchWorkouts";
 
-let clickCompleteBtn = () => {
-	document.addEventListener("click", (e) => {
-		let el = e.target;
-		if (el.id === "complete") {
-			let { 0: week, 1: day } = el.dataset.id.split("");
-
-			let currentDay = mainWorkout[week][day];
-			currentDay.complete = !currentDay.complete;
-
-			displayWorkout(mainWorkout);
-		}
-	});
-};
-
 let clickCell = () => {
 	document.addEventListener("click", (e) => {
 		let el = e.target;
@@ -105,4 +91,4 @@ let render = (workout) => {
 	}
 };
 
-export { render };
+export { render, displayWorkout };

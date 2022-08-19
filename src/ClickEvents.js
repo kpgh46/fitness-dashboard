@@ -3,7 +3,7 @@ import {
 	createWorkoutPlan,
 	mainWorkout,
 } from "./FetchWorkouts";
-import { render } from "./Render";
+import { render, displayWorkout } from "./Render";
 
 let clickGenerateWorkoutButton = () => {
 	let generatteWorkoutBtn = document.querySelector("#submit-workout");
@@ -25,6 +25,20 @@ let clickGenerateWorkoutButton = () => {
 		await createWorkoutPlan(currentExcercises, getNumDays, getTime);
 		console.log(mainWorkout);
 		render(mainWorkout);
+	});
+};
+
+let clickCompleteBtn = (workout) => {
+	document.addEventListener("click", (e) => {
+		let el = e.target;
+		if (el.id === "complete") {
+			let { 0: week, 1: day } = el.dataset.id.split("");
+
+			let currentDay = mainWorkout[week][day];
+			currentDay.complete = !currentDay.complete;
+
+			displayWorkout(workout);
+		}
 	});
 };
 
