@@ -20,6 +20,25 @@ let fetchExcercises = async () => {
 	return data;
 };
 
+let fetchQuote = async () => {
+	const options = {
+		method: "GET",
+		headers: {
+			"X-RapidAPI-Key":
+				"762c75f4ecmshb09408299e534b3p1f6bebjsnbb1df82a374c",
+			"X-RapidAPI-Host": "bodybuilding-quotes1.p.rapidapi.com",
+		},
+	};
+
+	let response = await fetch(
+		"https://bodybuilding-quotes1.p.rapidapi.com/random-quote",
+		options
+	);
+	let data = await response.json();
+
+	console.log(data);
+};
+
 //filters based on user equipment availability
 let getExcercisesBasedOnEquipment = async (equip = []) => {
 	let excercises = await fetchExcercises();
@@ -129,4 +148,5 @@ export {
 	createWorkoutPlan,
 	mainWorkout,
 	weeksComplete,
+	fetchQuote,
 };

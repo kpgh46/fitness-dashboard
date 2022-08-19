@@ -5,7 +5,9 @@ import {
 	clickWorkoutCell,
 	clickCompleteBtn,
 } from "./ClickEvents";
+import { fetchQuote } from "./FetchWorkouts";
 
 clickGenerateWorkoutButton();
 clickWorkoutCell();
 clickCompleteBtn();
+// fetchQuote();
