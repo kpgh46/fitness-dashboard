@@ -5,8 +5,10 @@ let clickCompleteBtn = () => {
 		let el = e.target;
 		if (el.id === "complete") {
 			let { 0: week, 1: day } = el.dataset.id.split("");
+
 			let currentDay = mainWorkout[week][day];
-			currentDay.complete = true;
+			currentDay.complete = !currentDay.complete;
+
 			displayWorkout(mainWorkout);
 		}
 	});
