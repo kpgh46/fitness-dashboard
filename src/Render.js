@@ -1,4 +1,30 @@
-let render = (workout) => {
+import { mainWorkout } from "./FetchWorkouts";
+
+let displayDailyWorkout = (week) => {
+	document.getElementById("selected").innerHTML = week.dailyExcercises
+		.map(
+			(item, index) =>
+				`
+                <div>
+                    <div data-bs-toggle="collapse" data-bs-target="#collapseExample${
+						item.id
+					}" aria-expanded="true" aria-controls="collapseExample"
+                        data-id = ${item.id}>
+                        ${index + 1}: ${item.excerciseName}
+                        </div>
+                    </div>
+
+                    <div class="collapse" id="collapseExample${item.id}">
+                        <div class="card card-body">
+                        <img style = "height: 220px;" src = ${item.url}>
+                    </div>
+                </div>
+        `
+		)
+		.join("");
+};
+
+let displayWeeklyWorkout = (workout) => {
 	let bottomContainer = document.querySelector("#workout-container");
 	bottomContainer.innerHTML = "";
 
@@ -12,20 +38,28 @@ let render = (workout) => {
 			let bottomCell = document.createElement("div");
 			bottomCell.classList.add("col-2");
 			bottomCell.classList.add("completed");
+			if (day.complete === true) {
+				bottomCell.classList.add("markComplete");
+			}
 			bottomCell.dataset.id = `${weeki}${dayi}`;
 			bottomCell.id = "cell";
-			bottomCell.innerHTML = `${day[0].bodyPart} & ${day[1].bodyPart}`;
+			bottomCell.innerHTML = `${day.dailyExcercises[0].bodyPart} & ${day.dailyExcercises[1].bodyPart}`;
+			let completeBtn = document.createElement("button");
+			completeBtn.classList.add("btn");
+			completeBtn.classList.add("btn-primary");
+			completeBtn.classList.add("btn-sm");
+			completeBtn.textContent = "Complete";
+			completeBtn.dataset.id = `${weeki}${dayi}`;
+			completeBtn.id = "complete";
+			bottomCell.appendChild(completeBtn);
 			bottomRow.appendChild(bottomCell);
 		});
 		bottomContainer.appendChild(bottomRow);
 	});
-
-	document.addEventListener("click", (e) => {
-		let el = e.target;
-		if (e.target.id === "cell") {
-			console.log(el.dataset.id);
-		}
-	});
 };
 
-export { render };
+let render = (workout) => {
+	displayWeeklyWorkout(workout);
+};
+
+export { render, displayWeeklyWorkout, displayDailyWorkout };

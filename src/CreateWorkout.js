@@ -1,18 +1,26 @@
 import uniqid from "uniqid";
 
 let individualDay = (dailyExcercisesArray) => {
-	let day = [];
+	let excercises = [];
+	let dailyID = uniqid();
 	dailyExcercisesArray.forEach((excercise, i) => {
-		day.push({
+		excercises.push({
 			id: uniqid(),
 			excerciseNum: i + 1,
 			bodyPart: excercise.bodyPart,
 			excerciseName: excercise.name,
 			equipment: excercise.equipment,
 			sets: 3,
+			url: excercise.gifUrl,
 			complete: false,
 		});
 	});
+
+	let day = {
+		complete: false,
+		dayId: dailyID,
+		dailyExcercises: [...excercises],
+	};
 
 	return day;
 };
