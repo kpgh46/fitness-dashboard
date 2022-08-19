@@ -1,36 +1,30 @@
 import { mainWorkout } from "./FetchWorkouts";
 
-let clickCell = () => {
-	document.addEventListener("click", (e) => {
-		let el = e.target;
-		if (e.target.id === "cell") {
-			let { 0: week, 1: day } = el.dataset.id.split("");
-			let currentWeek = mainWorkout[week][day];
-			document.getElementById("selected").innerHTML =
-				currentWeek.dailyExcercises
-					.map(
-						(item, index) =>
-							`
+let displayDailyWorkout = (week) => {
+	document.getElementById("selected").innerHTML = week.dailyExcercises
+		.map(
+			(item, index) =>
+				`
                 <div>
                     <div data-bs-toggle="collapse" data-bs-target="#collapseExample${
 						item.id
-					}" aria-expanded="true" aria-controls="collapseExample" data-id = ${
-								item.id
-							}>${index + 1}: ${item.excerciseName}</div>
-                </div>
-                <div class="collapse" id="collapseExample${item.id}">
-                    <div class="card card-body">
+					}" aria-expanded="true" aria-controls="collapseExample"
+                        data-id = ${item.id}>
+                        ${index + 1}: ${item.excerciseName}
+                        </div>
+                    </div>
+
+                    <div class="collapse" id="collapseExample${item.id}">
+                        <div class="card card-body">
                         <img style = "height: 220px;" src = ${item.url}>
-                     </div>
+                    </div>
                 </div>
-                `
-					)
-					.join("");
-		}
-	});
+        `
+		)
+		.join("");
 };
 
-let displayWorkout = (workout) => {
+let displayWeeklyWorkout = (workout) => {
 	let bottomContainer = document.querySelector("#workout-container");
 	bottomContainer.innerHTML = "";
 
@@ -83,7 +77,7 @@ let weeksComplete = (workout) => {
 };
 
 let render = (workout) => {
-	displayWorkout(workout);
+	displayWeeklyWorkout(workout);
 	clickCell();
 	clickCompleteBtn();
 	if (mainWorkout.length > 0) {
@@ -91,4 +85,4 @@ let render = (workout) => {
 	}
 };
 
-export { render, displayWorkout };
+export { render, displayWeeklyWorkout, displayDailyWorkout };
