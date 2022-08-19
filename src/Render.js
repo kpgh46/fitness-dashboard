@@ -57,32 +57,9 @@ let displayWeeklyWorkout = (workout) => {
 		bottomContainer.appendChild(bottomRow);
 	});
 };
-let weeksCompletedCount = 0;
-
-let weeksComplete = (workout) => {
-	let weeksCompleted = document.querySelector("#weeks-completed");
-	workout.forEach((week) => {
-		let checkIfAllComplete = week.every((item) => {
-			return item.complete;
-		});
-		console.log(checkIfAllComplete);
-
-		if (checkIfAllComplete) {
-			weeksCompletedCount++;
-		}
-		// console.log(day.complete);
-	});
-	weeksCompletedCount++;
-	weeksCompleted.textContent = 0;
-};
 
 let render = (workout) => {
 	displayWeeklyWorkout(workout);
-	clickCell();
-	clickCompleteBtn();
-	if (mainWorkout.length > 0) {
-		weeksComplete(workout);
-	}
 };
 
 export { render, displayWeeklyWorkout, displayDailyWorkout };

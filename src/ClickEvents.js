@@ -2,6 +2,7 @@ import {
 	getExcercisesBasedOnEquipment,
 	createWorkoutPlan,
 	mainWorkout,
+	weeksComplete,
 } from "./FetchWorkouts";
 import { render, displayWeeklyWorkout, displayDailyWorkout } from "./Render";
 
@@ -36,7 +37,7 @@ let clickCompleteBtn = () => {
 
 			let currentDay = mainWorkout[week][day];
 			currentDay.complete = !currentDay.complete;
-
+			weeksComplete(mainWorkout);
 			render(mainWorkout);
 		}
 	});
