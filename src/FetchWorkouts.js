@@ -16,7 +16,7 @@ let fetchExcercises = async () => {
 		options
 	);
 	let data = await response.json();
-	console.log(data);
+
 	return data;
 };
 
