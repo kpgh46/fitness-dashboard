@@ -24,3 +24,7 @@
     border: 1px solid silver;
     border-radius: 10px;
 }
+
+.markComplete{
+    background-color: lightblue;
+}

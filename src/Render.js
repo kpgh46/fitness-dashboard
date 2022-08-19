@@ -7,6 +7,7 @@ let clickCompleteBtn = () => {
 			let { 0: week, 1: day } = el.dataset.id.split("");
 			let currentDay = mainWorkout[week][day];
 			currentDay.complete = true;
+			displayWorkout(mainWorkout);
 		}
 	});
 };
@@ -55,6 +56,9 @@ let displayWorkout = (workout) => {
 			let bottomCell = document.createElement("div");
 			bottomCell.classList.add("col-2");
 			bottomCell.classList.add("completed");
+			if (day.complete === true) {
+				bottomCell.classList.add("markComplete");
+			}
 			bottomCell.dataset.id = `${weeki}${dayi}`;
 			bottomCell.id = "cell";
 			bottomCell.innerHTML = `${day.dailyExcercises[0].bodyPart} & ${day.dailyExcercises[1].bodyPart}`;
@@ -76,7 +80,6 @@ let render = (workout) => {
 	displayWorkout(workout);
 	clickCell();
 	clickCompleteBtn();
-	console.log(workout);
 };
 
 export { render };
