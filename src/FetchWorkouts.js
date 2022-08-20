@@ -1,5 +1,6 @@
 import { createWeeklyWorkoutPlan } from "./CreateWorkout";
 let mainWorkout = [];
+let startingPoint = 0;
 
 let fetchExcercises = async () => {
 	const options = {
@@ -101,8 +102,6 @@ let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
 			: 0;
 
 	let getSlicedBodyParts = numberOfDays === 2 ? 3 : 2;
-
-	let startingPoint = 0;
 
 	for (let i = 0; i < numberOfDays; i++) {
 		if (startingPoint > 5) {
