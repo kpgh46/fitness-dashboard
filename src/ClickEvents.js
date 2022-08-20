@@ -3,6 +3,7 @@ import {
 	createWorkoutPlan,
 	mainWorkout,
 	weeksComplete,
+	workoutsComplete,
 	fetchQuote,
 } from "./FetchWorkouts";
 import {
@@ -52,6 +53,7 @@ let clickCompleteBtn = () => {
 			let currentDay = mainWorkout[week][day];
 			currentDay.complete = !currentDay.complete;
 			weeksComplete(mainWorkout);
+			workoutsComplete(mainWorkout);
 			render(mainWorkout);
 		}
 	});

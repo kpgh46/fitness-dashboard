@@ -143,10 +143,25 @@ let weeksComplete = (workout) => {
 	weeksCompleted.textContent = weeksCompletedCount;
 };
 
+let workoutsComplete = (workout) => {
+	let workoutsCompleteCount = 0;
+	let workoutsComplete = document.querySelector("#workouts-completed");
+	workout.forEach((week) => {
+		week.forEach((day) => {
+			if (day.complete) {
+				workoutsCompleteCount++;
+			}
+		});
+	});
+
+	workoutsComplete.textContent = workoutsCompleteCount;
+};
+
 export {
 	getExcercisesBasedOnEquipment,
 	createWorkoutPlan,
 	mainWorkout,
 	weeksComplete,
+	workoutsComplete,
 	fetchQuote,
 };
