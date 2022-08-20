@@ -1,4 +1,4 @@
-import { mainWorkout } from "./FetchWorkouts";
+import { mainWorkout, fetchQuote } from "./FetchWorkouts";
 
 let displayDailyWorkout = (week) => {
 	document.getElementById("selected").innerHTML = week.dailyExcercises
@@ -17,11 +17,16 @@ let displayDailyWorkout = (week) => {
                     <div class="collapse" id="collapseExample${item.id}">
                         <div class="card card-body">
                         <img style = "height: 220px;" src = ${item.url}>
-                    </div>
+                    </div>  
                 </div>
         `
 		)
 		.join("");
+};
+
+let displayQuote = (quote, author) => {
+	let qouteDiv = document.querySelector("#quote");
+	qouteDiv.textContent = `${quote} - ${author}`;
 };
 
 let displayWeeklyWorkout = (workout) => {
@@ -62,4 +67,4 @@ let render = (workout) => {
 	displayWeeklyWorkout(workout);
 };
 
-export { render, displayWeeklyWorkout, displayDailyWorkout };
+export { render, displayWeeklyWorkout, displayDailyWorkout, displayQuote };

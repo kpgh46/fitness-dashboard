@@ -36,7 +36,7 @@ let fetchQuote = async () => {
 	);
 	let data = await response.json();
 
-	console.log(data);
+	return data;
 };
 
 //filters based on user equipment availability
