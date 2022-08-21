@@ -6,11 +6,13 @@ let displayDailyWorkout = (week) => {
 			(item, index) =>
 				`
                 <div>
-                    <div data-bs-toggle="collapse" data-bs-target="#collapseExample${
+                    <div class = "drop" data-bs-toggle="collapse" data-bs-target="#collapseExample${
 						item.id
 					}" aria-expanded="true" aria-controls="collapseExample"
                         data-id = ${item.id}>
-                        ${index + 1}: ${item.excerciseName}
+                        ${index + 1}: ${
+					item.excerciseName
+				} <span> <i class="bi bi-caret-down"></i></span>
                         </div>
                     </div>
 
@@ -43,6 +45,9 @@ let displayWeeklyWorkout = (workout) => {
 			let bottomCell = document.createElement("div");
 			bottomCell.classList.add("col-2");
 			bottomCell.classList.add("completed");
+			bottomCell.classList.add("cell");
+			bottomCell.classList.add("mask");
+
 			if (day.complete === true) {
 				bottomCell.classList.add("markComplete");
 			}
