@@ -53,8 +53,9 @@
 .bi{
     font-size: 20px;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 3px;
+    right: 3px;
+    color:#FF5349;
 }
 
 
