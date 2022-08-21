@@ -12,7 +12,7 @@ let displayDailyWorkout = (week) => {
                         data-id = ${item.id}>
                         ${index + 1}: ${
 					item.excerciseName
-				} <span> <i class="bi bi-caret-down"></i></span>
+				} <span> <i class="bi bi-caret-down"></i></span>    
                         </div>
                     </div>
 
@@ -53,12 +53,15 @@ let displayWeeklyWorkout = (workout) => {
 			}
 			bottomCell.dataset.id = `${weeki}${dayi}`;
 			bottomCell.id = "cell";
+			bottomCell.style.position = "relative";
 			bottomCell.innerHTML = `${day.dailyExcercises[0].bodyPart} & ${day.dailyExcercises[1].bodyPart}`;
-			let completeBtn = document.createElement("button");
-			completeBtn.classList.add("btn");
-			completeBtn.classList.add("btn-primary");
-			completeBtn.classList.add("btn-sm");
-			completeBtn.textContent = "Complete";
+			let completeBtn = document.createElement("i");
+			// completeBtn.classList.add("btn");
+			// completeBtn.classList.add("btn-primary");
+			// completeBtn.classList.add("btn-sm");
+			completeBtn.classList.add("bi");
+			completeBtn.classList.add("bi-check-circle");
+			// completeBtn.textContent = "Complete";
 			completeBtn.dataset.id = `${weeki}${dayi}`;
 			completeBtn.id = "complete";
 			bottomCell.appendChild(completeBtn);

@@ -41,11 +41,20 @@
 }
 
 .markComplete{
-    background-color: lightblue;
+    background-color: rgb(223, 28, 47);
+    
 }
 
 .drop:hover{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+
+.bi{
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 
 
