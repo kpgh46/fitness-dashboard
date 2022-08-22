@@ -60,6 +60,12 @@
     right: 3px;
 }
 
+.choices{
+    color:#FF5349;
+    border-color:#FF5349;;
+}
 
-
-
+.choices:hover{
+    background-color:#FF5349;;
+    /* color: blue; */
+}
