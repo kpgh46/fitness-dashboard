@@ -67,5 +67,21 @@
 
 .choices:hover{
     background-color:#FF5349;;
+    border: #FF5349;
     /* color: blue; */
 }
+
+.custom-control-input {
+    background-color: #6C757D;
+}
+
+input[type="radio"]:checked + .choices {
+    background: #FF5349;
+    border: #FF5349;
+    box-shadow: none;
+  }
+input[type="checkbox"]:checked + .choices {
+    background: #FF5349;
+    border: #FF5349;
+    box-shadow: none;
+  }
