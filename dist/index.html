@@ -57,40 +57,25 @@
 
                             <div>What kind of equipment do you have access to?</div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="dumbbell" id="flexCheckDefault" name = "equipment" checked>
-                                <label class="form-check-label" for="flexCheckDefault">
-                                  Dumbells
-                                </label>
+                              <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                <input type="checkbox" class="btn-check" id="dumbbells" autocomplete="off" name = "equipment" value = "dumbbell">
+                                <label class="btn btn-outline-primary" for="dumbbells">Dumbells</label>
+                              
+                                <input type="checkbox" class="btn-check" id="barbells" autocomplete="off" name = "equipment" value = "barbell">
+                                <label class="btn btn-outline-primary" for="barbells">Barbells</label>
+                              
+                                <input type="checkbox" class="btn-check" id="cable" autocomplete="off" name = "equipment" value = "cable">
+                                <label class="btn btn-outline-primary" for="cable">Cables</label>
+
+                                <input type="checkbox" class="btn-check" id="body" autocomplete="off" name = "equipment" value = "body weight">
+                                <label class="btn btn-outline-primary" for="body">Body</label>
+                              
+                                <input type="checkbox" class="btn-check" id="band" autocomplete="off" name = "equipment" value = "band">
+                                <label class="btn btn-outline-primary" for="band">Bands</label>
+                              
+                                <input type="checkbox" class="btn-check" id="none" autocomplete="off" name = "equipment" value = "none">
+                                <label class="btn btn-outline-primary" for="none">None</label>
                               </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="barbell" id="flexCheckChecked" name = "equipment">
-                                <label class="form-check-label" for="flexCheckChecked">
-                                  Barbells
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="cable" id="flexCheckChecked" name = "equipment">
-                                <label class="form-check-label" for="flexCheckChecked">
-                                  Cable
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="body weight" id="flexCheckChecked" name = "equipment">
-                                <label class="form-check-label" for="flexCheckChecked">
-                                  Body
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="band" id="flexCheckChecked" name = "equipment">
-                                <label class="form-check-label" for="flexCheckChecked">
-                                  Band
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="none" id="flexCheckChecked" name = "equipment">
-                                <label class="form-check-label" for="flexCheckChecked">
-                                  None
-                                </label>
                               </div>
                               <br>
                         <input class="btn btn-primary" style = "background-color:FF5349" value="Submit" id = "submit-workout">
