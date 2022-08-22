@@ -11,7 +11,7 @@
 }
 
 #cell:hover{
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgb(255,83,73) 0px 0px 0px .5px;
 }
 
 .mask{
