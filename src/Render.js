@@ -1,6 +1,9 @@
 import { mainWorkout, fetchQuote } from "./FetchWorkouts";
 
 let displayDailyWorkout = (week) => {
+	let capitalize = (string) => {
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	};
 	document.getElementById("selected").innerHTML = week.dailyExcercises
 		.map(
 			(item, index) =>
@@ -10,9 +13,9 @@ let displayDailyWorkout = (week) => {
 						item.id
 					}" aria-expanded="true" aria-controls="collapseExample"
                         data-id = ${item.id}>
-                        ${index + 1}: ${
+                        ${index + 1}: ${capitalize(
 					item.excerciseName
-				} <span> <i class="bi bi-caret-down"></i></span>    
+				)} <span> <i class="bi bi-caret-down"></i></span>    
                         </div>
                     </div>
 

@@ -11,5 +11,5 @@ import { fetchQuote } from "./FetchWorkouts";
 clickGenerateWorkoutButton();
 clickWorkoutCell();
 clickCompleteBtn();
-// clickMotivation();
-// fetchQuote();
+clickMotivation();
+fetchQuote();
