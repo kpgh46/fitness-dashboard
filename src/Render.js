@@ -38,9 +38,9 @@ let displayWeeklyWorkout = (workout) => {
 	workout.forEach((week, weeki) => {
 		let bottomRow = document.createElement("section");
 		bottomRow.classList.add("row");
-		bottomRow.classList.add("bottom");
+		// bottomRow.classList.add("bottom");
 		bottomRow.id = "days";
-		bottomRow.style = "height: 10vw";
+		bottomRow.style = "height: 8vw";
 		week.forEach((day, dayi) => {
 			let bottomCell = document.createElement("div");
 			bottomCell.classList.add("col-2");
