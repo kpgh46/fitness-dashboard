@@ -85,3 +85,16 @@ input[type="checkbox"]:checked + .choices {
     border: #FF5349;
     box-shadow: none;
   }
+
+  .progress{
+    height: 170px;
+    width: 170px;
+    border-radius: 50%;
+    border: 10px solid #FF5349;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    flex-direction: column;
+  }
