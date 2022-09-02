@@ -29,8 +29,8 @@
 }
 
 .row.bottom{
-    height:100px;
-    border: .25px solid #FF5349;
+    height:auto;
+    /* border: .25px solid #FF5349; */
 }
 
 .col-2.completed{

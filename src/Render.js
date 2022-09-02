@@ -43,7 +43,7 @@ let displayWeeklyWorkout = (workout) => {
 		bottomRow.classList.add("row");
 		// bottomRow.classList.add("bottom");
 		bottomRow.id = "days";
-		bottomRow.style = "height: 8vw";
+		bottomRow.style = "height: auto";
 		week.forEach((day, dayi) => {
 			let bottomCell = document.createElement("div");
 			bottomCell.classList.add("col-2");
@@ -58,7 +58,7 @@ let displayWeeklyWorkout = (workout) => {
 			bottomCell.id = "cell";
 			bottomCell.style.position = "relative";
 			bottomCell.style.height = "120px";
-			bottomCell.style.fontSize = "20px";
+			bottomCell.style.fontSize = "100%";
 			bottomCell.classList.add("d-flex");
 			bottomCell.classList.add("align-items-center");
 			bottomCell.classList.add("justify-content-center");
