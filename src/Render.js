@@ -59,9 +59,11 @@ let displayWeeklyWorkout = (workout) => {
 			bottomCell.style.position = "relative";
 			bottomCell.style.height = "120px";
 			bottomCell.style.fontSize = "100%";
+			bottomCell.style.marginTop = "5px";
 			bottomCell.classList.add("d-flex");
 			bottomCell.classList.add("align-items-center");
 			bottomCell.classList.add("justify-content-center");
+
 			bottomCell.innerHTML = `${day.dailyExcercises[0].bodyPart.toUpperCase()} & ${day.dailyExcercises[1].bodyPart.toUpperCase()}`;
 			let completeBtn = document.createElement("i");
 			completeBtn.classList.add("bi");
