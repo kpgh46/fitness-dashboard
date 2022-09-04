@@ -1,5 +1,5 @@
 {
-  "name": "weatherapp",
+  "name": "fitness-dashboard",
   "homepage": "https://kpgh46.github.io/fitness-dashboard",
   "version": "1.0.0",
   "description": "",
@@ -9,7 +9,7 @@
     "watch": "webpack --watch",
     "build": "webpack",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -29,5 +29,8 @@
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.0",
     "uniqid": "^5.4.0"
+  },
+  "repository": {
+    "url": "git+https://github.com/kpgh46/fitness-dashboard.git"
   }
 }
