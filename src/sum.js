@@ -1,4 +1,4 @@
-function sum(a, b) {
+function addNums(a, b) {
 	return a + b;
 }
-export { sum };
+export default addNums;
