@@ -18,7 +18,7 @@ let fetchExcercises = async () => {
 	);
 	let data = await response.json();
 
-	console.log(data);
+	// console.log(data);
 	return data;
 };
 
@@ -160,8 +160,10 @@ let workoutsComplete = (workout) => {
 export {
 	getExcercisesBasedOnEquipment,
 	createWorkoutPlan,
+	createSingleWorkout,
 	mainWorkout,
 	weeksComplete,
 	workoutsComplete,
 	fetchQuote,
+	fetchExcercises,
 };
