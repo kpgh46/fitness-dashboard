@@ -1,8 +1,9 @@
 import { defaults } from "autoprefixer";
-import { fetchExcercises } from "./FetchWorkouts";
+import { fetchExcercises, mainWorkout } from "./FetchWorkouts";
 import {
 	getExcercisesBasedOnEquipment,
 	createSingleWorkout,
+	createWorkoutPlan,
 } from "./FetchWorkouts";
 import { mockdata } from "./mockdata";
 
@@ -15,7 +16,7 @@ global.fetch = jest.fn(() =>
 describe("Workouts", () => {
 	let getExcercises;
 
-	describe("When we get excercises based on equipment", () => {
+	describe("get excercises based on equipment", () => {
 		beforeEach(async () => {
 			getExcercises = await fetchExcercises();
 		});
@@ -24,7 +25,7 @@ describe("Workouts", () => {
 			expect(getExcercises[0].bodyPart).toBe("waist");
 		});
 
-		test("if all equipment is filtered correctly", async () => {
+		test("if all equipment is filtered based on input", async () => {
 			let currentExcercises = await getExcercisesBasedOnEquipment([
 				"barbell",
 			]);
