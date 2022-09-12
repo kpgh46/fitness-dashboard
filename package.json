@@ -14,12 +14,13 @@
     "watch": "webpack --watch",
     "build": "webpack",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -main"
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.19.0",
     "@babel/preset-env": "^7.19.0",
     "autoprefixer": "^10.4.8",
     "babel-jest": "^29.0.2",
