@@ -52,9 +52,5 @@ describe("Workouts", () => {
 			let workoutPlan = await mainWorkout;
 			expect(workoutPlan[0].length).toBe(4);
 		});
-
-		test("number of workouts complete", async () => {
-			console.log(mainWorkout);
-		});
 	});
 });
