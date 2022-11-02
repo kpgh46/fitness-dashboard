@@ -2,6 +2,7 @@ import { createWeeklyWorkoutPlan } from "./CreateWorkout";
 let mainWorkout = [];
 let startingPoint = 0;
 
+//fetch excercises from API
 let fetchExcercises = async () => {
 	const options = {
 		method: "GET",
@@ -18,10 +19,10 @@ let fetchExcercises = async () => {
 	);
 	let data = await response.json();
 
-	// console.log(data);
 	return data;
 };
 
+//N/A
 let fetchQuote = async () => {
 	const options = {
 		method: "GET",
