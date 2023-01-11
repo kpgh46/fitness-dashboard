@@ -46,24 +46,11 @@ let fetchQuote = async () => {
 //filters dataset based on user equipment availability
 let getExcercisesBasedOnEquipment = async (equip = []) => {
 	let excercises = await fetchExcercises();
-	let filteredExcercises = [];
-
-	//
-	equip.forEach((item) => {
-		excercises.forEach((excercise) => {
-			if (excercise.equipment === item) {
-				filteredExcercises.push(excercise);
-			}
-		});
+	let filteredEquipment = excercises.filter((item) => {
+		return equip.includes(item.equipment);
 	});
 
-	// let filteredExcercises = equip.forEach((equipment) => {
-	// 	excercises.filter((excercise) => {
-	// 		return excercise.equipment === equipment;
-	// 	});
-	// });
-
-	return filteredExcercises;
+	return filteredEquipment;
 };
 
 //returns list of muscleGroups. for ex: ["chest", "back", "chest", "back"..]
