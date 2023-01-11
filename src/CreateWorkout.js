@@ -1,10 +1,10 @@
 import uniqid from "uniqid";
 
+//creates objects for each day with unique ID, completed, url, ect.
 let individualDay = (dailyExcercisesArray) => {
-	let excercises = [];
 	let dailyID = uniqid();
-	dailyExcercisesArray.forEach((excercise, i) => {
-		excercises.push({
+	let excercises = dailyExcercisesArray.map((excercise, i) => {
+		return {
 			id: uniqid(),
 			excerciseNum: i + 1,
 			bodyPart: excercise.bodyPart,
@@ -13,7 +13,7 @@ let individualDay = (dailyExcercisesArray) => {
 			sets: 3,
 			url: excercise.gifUrl,
 			complete: false,
-		});
+		};
 	});
 
 	let day = {
@@ -25,12 +25,12 @@ let individualDay = (dailyExcercisesArray) => {
 	return day;
 };
 
+//turns the weekly plan into a week of workout day objects
 let createWeeklyWorkoutPlan = (weeklyPlan) => {
-	let complete = [];
-	weeklyPlan.forEach((day, index) => {
-		complete.push(individualDay(day));
+	let plan = weeklyPlan.map((day) => {
+		return individualDay(day);
 	});
-	return complete;
+	return plan;
 };
 
 export { createWeeklyWorkoutPlan };

@@ -57,6 +57,7 @@ let createSingleWorkout = (excercises, muscles, numOfExcercises) => {
 	return workout;
 };
 
+//based on user input, the number of excercises per workout are returned
 let excercisesPerWorkout = (time) => {
 	if (time === 15) {
 		return 3;
@@ -74,8 +75,6 @@ let excercisesPerWorkout = (time) => {
 
 let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
 	let weeklyWorkout = [];
-
-	//get the number.  typically 6,9,12,ect
 	let getNumberOfExcercisesPerWorkout = excercisesPerWorkout(amountOfTime);
 	let currentExcercises = await excercises;
 	//always 2 unless user enters they workout only 2 days a week.
