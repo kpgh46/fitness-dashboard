@@ -18,6 +18,7 @@ let fetchExcercises = async () => {
 		options
 	);
 	let data = await response.json();
+	console.log(data);
 
 	return data;
 };
@@ -59,13 +60,21 @@ let getExcercisesBasedOnEquipment = async (equip = []) => {
 
 let createSingleWorkout = (excercises, muscles, numOfExcercises) => {
 	let workout = [];
+	// muscles will be something like [back, chest, back, chest, back, chest]
+	// console.log(muscles);
+
+	//determines how many excercises per workout.
 	let difference = numOfExcercises - muscles.length;
 
+	//loops through the set of 2 muscles untill it reaches the difference
 	for (let i = 0; i < difference; i++) {
+		// console.log(muscles[i], i);
 		muscles.push(muscles[i]);
 	}
 
+	//for each muscle, we collect a random excercise and push it to the workout
 	muscles.forEach((muscle, i) => {
+		// console.log(muscle, i);
 		let filterMuscle = excercises.filter((item) => {
 			return item.bodyPart === muscle;
 		});
@@ -80,9 +89,26 @@ let createSingleWorkout = (excercises, muscles, numOfExcercises) => {
 	return workout;
 };
 
+let excercisesPerWorkout = (time) => {
+	if (time === 15) {
+		return 3;
+	}
+	if (time === 30) {
+		return 6;
+	}
+	if (time === 45) {
+		return 9;
+	}
+	if (time === 60) {
+		return 12;
+	}
+};
+
 let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
 	let weeklyWorkout = [];
+	let getNumberOfExcercisesPerWorkout = excercisesPerWorkout(amountOfTime);
 	let currentExcercises = await excercises;
+	let getSlicedBodyParts = numberOfDays === 2 ? 3 : 2;
 	let bodyParts = [
 		"back",
 		"chest",
@@ -91,19 +117,6 @@ let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
 		"waist",
 		"upper arms",
 	];
-
-	let getNumberOfExcercisesPerWorkout =
-		amountOfTime === 15
-			? 3
-			: amountOfTime === 30
-			? 6
-			: amountOfTime === 45
-			? 9
-			: amountOfTime === 60
-			? 12
-			: 0;
-
-	let getSlicedBodyParts = numberOfDays === 2 ? 3 : 2;
 
 	for (let i = 0; i < numberOfDays; i++) {
 		if (startingPoint > 5) {
