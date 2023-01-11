@@ -1,5 +1,3 @@
-import { mainWorkout } from "./FetchWorkouts";
-
 let displayDailyWorkout = (week) => {
 	let capitalize = (string) => {
 		return string.charAt(0).toUpperCase() + string.slice(1);
@@ -27,11 +25,6 @@ let displayDailyWorkout = (week) => {
         `
 		)
 		.join("");
-};
-
-let displayQuote = (quote, author) => {
-	let qouteDiv = document.querySelector("#quote");
-	qouteDiv.textContent = `${quote} - ${author}`;
 };
 
 let displayWeeklyWorkout = (workout) => {
@@ -77,8 +70,43 @@ let displayWeeklyWorkout = (workout) => {
 	});
 };
 
+let workoutsComplete = (workout) => {
+	let workoutsCompleteCount = 0;
+	let workoutsComplete = document.querySelector("#workouts-completed");
+	workout.forEach((week) => {
+		week.forEach((day) => {
+			if (day.complete) {
+				workoutsCompleteCount++;
+			}
+		});
+	});
+
+	workoutsComplete.textContent = workoutsCompleteCount;
+};
+
+let weeksComplete = (workout) => {
+	let weeksCompletedCount = 0;
+	let weeksCompleted = document.querySelector("#weeks-completed");
+	workout.forEach((week) => {
+		let checkIfAllComplete = week.every((item) => {
+			return item.complete;
+		});
+
+		if (checkIfAllComplete) {
+			weeksCompletedCount++;
+		}
+	});
+	weeksCompleted.textContent = weeksCompletedCount;
+};
+
 let render = (workout) => {
 	displayWeeklyWorkout(workout);
 };
 
-export { render, displayWeeklyWorkout, displayDailyWorkout, displayQuote };
+export {
+	render,
+	displayWeeklyWorkout,
+	displayDailyWorkout,
+	workoutsComplete,
+	weeksComplete,
+};

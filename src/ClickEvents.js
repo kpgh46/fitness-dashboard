@@ -2,14 +2,13 @@ import {
 	getExcercisesBasedOnEquipment,
 	createWorkoutPlan,
 	mainWorkout,
-	weeksComplete,
-	workoutsComplete,
 } from "./FetchWorkouts";
 import {
 	render,
 	displayWeeklyWorkout,
 	displayDailyWorkout,
-	displayQuote,
+	weeksComplete,
+	workoutsComplete,
 } from "./Render";
 
 let clickGenerateWorkoutButton = () => {
@@ -30,16 +29,8 @@ let clickGenerateWorkoutButton = () => {
 
 		let currentExcercises = getExcercisesBasedOnEquipment(allEquipment);
 		await createWorkoutPlan(currentExcercises, getNumDays, getTime);
-		console.log(mainWorkout);
+
 		render(mainWorkout);
-	});
-};
-
-let clickMotivation = async () => {
-	let motivationBtn = document.querySelector("#motivation");
-
-	motivationBtn.addEventListener("click", () => {
-		displayQuote(information.quote, information.author);
 	});
 };
 
@@ -69,9 +60,4 @@ let clickWorkoutCell = () => {
 	});
 };
 
-export {
-	clickGenerateWorkoutButton,
-	clickWorkoutCell,
-	clickCompleteBtn,
-	clickMotivation,
-};
+export { clickGenerateWorkoutButton, clickWorkoutCell, clickCompleteBtn };

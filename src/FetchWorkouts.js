@@ -113,41 +113,10 @@ let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
 	mainWorkout.push(createWeeklyWorkoutPlan(weeklyWorkout));
 };
 
-let weeksComplete = (workout) => {
-	let weeksCompletedCount = 0;
-	let weeksCompleted = document.querySelector("#weeks-completed");
-	workout.forEach((week) => {
-		let checkIfAllComplete = week.every((item) => {
-			return item.complete;
-		});
-
-		if (checkIfAllComplete) {
-			weeksCompletedCount++;
-		}
-	});
-	weeksCompleted.textContent = weeksCompletedCount;
-};
-
-let workoutsComplete = (workout) => {
-	let workoutsCompleteCount = 0;
-	let workoutsComplete = document.querySelector("#workouts-completed");
-	workout.forEach((week) => {
-		week.forEach((day) => {
-			if (day.complete) {
-				workoutsCompleteCount++;
-			}
-		});
-	});
-
-	workoutsComplete.textContent = workoutsCompleteCount;
-};
-
 export {
 	getExcercisesBasedOnEquipment,
 	createWorkoutPlan,
 	createSingleWorkout,
 	mainWorkout,
-	weeksComplete,
-	workoutsComplete,
 	fetchExcercises,
 };
