@@ -43,10 +43,12 @@ let fetchQuote = async () => {
 	return data;
 };
 
-//filters based on user equipment availability
+//filters dataset based on user equipment availability
 let getExcercisesBasedOnEquipment = async (equip = []) => {
 	let excercises = await fetchExcercises();
 	let filteredExcercises = [];
+
+	//
 	equip.forEach((item) => {
 		excercises.forEach((excercise) => {
 			if (excercise.equipment === item) {
@@ -55,35 +57,38 @@ let getExcercisesBasedOnEquipment = async (equip = []) => {
 		});
 	});
 
+	// let filteredExcercises = equip.forEach((equipment) => {
+	// 	excercises.filter((excercise) => {
+	// 		return excercise.equipment === equipment;
+	// 	});
+	// });
+
 	return filteredExcercises;
 };
 
-let createSingleWorkout = (excercises, muscles, numOfExcercises) => {
-	let workout = [];
-	// muscles will be something like [back, chest, back, chest, back, chest]
-	// console.log(muscles);
-
-	//determines how many excercises per workout.
-	let difference = numOfExcercises - muscles.length;
-
-	//loops through the set of 2 muscles untill it reaches the difference
-	for (let i = 0; i < difference; i++) {
+//returns list of muscleGroups. for ex: ["chest", "back", "chest", "back"..]
+let getWorkoutExcercises = (muscleGroups, num) => {
+	for (let i = 0; i < num; i++) {
 		// console.log(muscles[i], i);
-		muscles.push(muscles[i]);
+		muscleGroups.push(muscleGroups[i]);
 	}
+	return muscleGroups;
+};
 
-	//for each muscle, we collect a random excercise and push it to the workout
-	muscles.forEach((muscle, i) => {
-		// console.log(muscle, i);
+//returns a single workout based on criteria
+let createSingleWorkout = (excercises, muscles, numOfExcercises) => {
+	let numPerWorkout = numOfExcercises - muscles.length;
+	let muscleGroups = getWorkoutExcercises(muscles, numPerWorkout);
+
+	//each muscle group is mapped to a randomized excercise
+	let workout = muscleGroups.map((muscle, i) => {
 		let filterMuscle = excercises.filter((item) => {
 			return item.bodyPart === muscle;
 		});
 
 		let randomNum = Math.floor(Math.random() * filterMuscle.length);
 
-		let randomExcercise = filterMuscle[randomNum];
-
-		workout.push(randomExcercise);
+		return filterMuscle[randomNum];
 	});
 
 	return workout;
