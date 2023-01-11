@@ -18,27 +18,6 @@ let fetchExcercises = async () => {
 		options
 	);
 	let data = await response.json();
-	console.log(data);
-
-	return data;
-};
-
-//N/A
-let fetchQuote = async () => {
-	const options = {
-		method: "GET",
-		headers: {
-			"X-RapidAPI-Key":
-				"762c75f4ecmshb09408299e534b3p1f6bebjsnbb1df82a374c",
-			"X-RapidAPI-Host": "bodybuilding-quotes1.p.rapidapi.com",
-		},
-	};
-
-	let response = await fetch(
-		"https://bodybuilding-quotes1.p.rapidapi.com/random-quote",
-		options
-	);
-	let data = await response.json();
 
 	return data;
 };
@@ -56,7 +35,6 @@ let getExcercisesBasedOnEquipment = async (equip = []) => {
 //returns list of muscleGroups. for ex: ["chest", "back", "chest", "back"..]
 let getWorkoutExcercises = (muscleGroups, num) => {
 	for (let i = 0; i < num; i++) {
-		// console.log(muscles[i], i);
 		muscleGroups.push(muscleGroups[i]);
 	}
 	return muscleGroups;
@@ -72,9 +50,7 @@ let createSingleWorkout = (excercises, muscles, numOfExcercises) => {
 		let filterMuscle = excercises.filter((item) => {
 			return item.bodyPart === muscle;
 		});
-
 		let randomNum = Math.floor(Math.random() * filterMuscle.length);
-
 		return filterMuscle[randomNum];
 	});
 
@@ -98,8 +74,11 @@ let excercisesPerWorkout = (time) => {
 
 let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
 	let weeklyWorkout = [];
+
+	//get the number.  typically 6,9,12,ect
 	let getNumberOfExcercisesPerWorkout = excercisesPerWorkout(amountOfTime);
 	let currentExcercises = await excercises;
+	//always 2 unless user enters they workout only 2 days a week.
 	let getSlicedBodyParts = numberOfDays === 2 ? 3 : 2;
 	let bodyParts = [
 		"back",
@@ -110,7 +89,9 @@ let createWorkoutPlan = async (excercises, numberOfDays, amountOfTime) => {
 		"upper arms",
 	];
 
+	//looping through based on number of days in the week. uses counter in order to slicebody parts
 	for (let i = 0; i < numberOfDays; i++) {
+		console.log("startingPoint", startingPoint);
 		if (startingPoint > 5) {
 			startingPoint = 0;
 		}
@@ -140,7 +121,6 @@ let weeksComplete = (workout) => {
 		let checkIfAllComplete = week.every((item) => {
 			return item.complete;
 		});
-		console.log(checkIfAllComplete);
 
 		if (checkIfAllComplete) {
 			weeksCompletedCount++;
@@ -170,6 +150,5 @@ export {
 	mainWorkout,
 	weeksComplete,
 	workoutsComplete,
-	fetchQuote,
 	fetchExcercises,
 };

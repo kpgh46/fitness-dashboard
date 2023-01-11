@@ -1,4 +1,4 @@
-import { mainWorkout, fetchQuote } from "./FetchWorkouts";
+import { mainWorkout } from "./FetchWorkouts";
 
 let displayDailyWorkout = (week) => {
 	let capitalize = (string) => {

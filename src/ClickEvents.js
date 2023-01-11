@@ -4,7 +4,6 @@ import {
 	mainWorkout,
 	weeksComplete,
 	workoutsComplete,
-	fetchQuote,
 } from "./FetchWorkouts";
 import {
 	render,
@@ -38,7 +37,7 @@ let clickGenerateWorkoutButton = () => {
 
 let clickMotivation = async () => {
 	let motivationBtn = document.querySelector("#motivation");
-	let information = await fetchQuote();
+
 	motivationBtn.addEventListener("click", () => {
 		displayQuote(information.quote, information.author);
 	});
