@@ -6,7 +6,7 @@ This app generates fitness workouts based on user input.
 
 ## Overview
 
-This app fetches data from ExcerciseDB API. THe data is organized based on user input including number of days, amount of time, and equipment. Based on this input, a weekly workout plan is generated. The workout plan is designed specifically to cycle through primary body parts such as legs, shoulders, chest, back, and core. Workouts can be marked as complete and tracked on a daily or weekly basis.
+This app fetches data from ExcerciseDB API. The data is organized based on user input including number of days, amount of time, and equipment. Based on this input, a weekly workout plan is generated. The workout plan is designed specifically to cycle through primary body parts such as legs, shoulders, chest, back, and core. Workouts can be marked as complete and tracked on a daily or weekly basis.
 
 ## Functionality
 
